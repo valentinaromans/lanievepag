@@ -1,51 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block tittle %} Navbar {% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <style>
-        .navbarazul{
-             background-color: #1C1B5B !important; }
-
-        .letrablanca{
-            background-color: #ffffff; }     
-
-    </style>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block tittle %} HELADERÍA LA NIEVE {% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/stylebase.css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbarazul">
-        <div class="container-fluid">
-          <a class="navbar-brand h1 letrablanca" href="#" >
-            <img src="/static/images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            Heladería 'La nieve'</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Productos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    
+  <header class="header">
+    <div class="logo">
+      <img src="/static/images/logo.png" alt="Logo de la marca">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{% url 'login:login1' %}">Iniciar Sesión</a></li>
+        <li><a href="{% url 'productos:catalogo' %}">Productos</a></li>
+        <li><a href="{% url 'heladeria:about_us' %}">About Us</a></li>
+        <li><a href="{% url 'heladeria:recomendaciones' %}">Recomendaciones</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="btn"><button>Descarga nuestra app!</button></a>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
 </body>
 </html>
-{% block content %}
-{% endblock %}
